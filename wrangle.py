@@ -175,7 +175,7 @@ def compare_forecast_to_actual(stocks_and_index,df_results):
     fig, axes = plt.subplots(nrows=int((len(stocks_and_index.columns)+1)/2), ncols=2, dpi=150, figsize=(10,15))
     for i, (col,ax) in enumerate(zip(stocks_and_index.columns, axes.flatten())):
         df_results[col+'_forecast'].plot(legend=True, ax=ax).autoscale(axis='x',tight=True)
-        test[col][-7:].plot(legend=True, ax=ax);
+        test[col][-nobs:].plot(legend=True, ax=ax);
         ax.set_title(col + ": Forecast vs Actuals")
         ax.xaxis.set_ticks_position('none')
         ax.yaxis.set_ticks_position('none')
